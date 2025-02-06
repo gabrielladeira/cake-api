@@ -2,12 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CakeController;
+use App\Http\Middleware\EnsureAcceptApplicationJson;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::prefix('api/v1')
+    ->middleware(EnsureAcceptApplicationJson::class)
     ->group(function () {
         Route::prefix('cakes')
             ->name('cakes')
