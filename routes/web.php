@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CakeController;
 use App\Http\Middleware\EnsureAcceptApplicationJson;
@@ -20,5 +21,13 @@ Route::prefix('api/v1')
                 Route::put('{id}', [CakeController::class, 'update']);
                 Route::delete('{id}', [CakeController::class, 'destroy']);
                 Route::get('{id}/orders', [CakeController::class, 'orders']);
+            });
+        
+        Route::prefix('orders')
+            ->name('orders')
+            ->group(function () {
+                Route::get('/', [OrderController::class, 'list']);
+                Route::get('/{id}', [OrderController::class, 'show']);
+                Route::post('/', [OrderController::class, 'store']);
             });
     });
