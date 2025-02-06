@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Events\OrderCreated;
 use App\Http\Requests\StoreOrderRequest;
 use App\Models\Order;
-use App\Mail\OrderAvailable;
-use App\Mail\EmailService;
+
 
 class OrderController extends BaseController
 {
@@ -33,12 +33,7 @@ class OrderController extends BaseController
 
         $order = Order::create($validated);
 
-        $cake = $order->getCake();
-
-        if($cake->quantity > 0) {
-            $mail = new OrderAvailable($order);
-            EmailService::send($mail);
-        }
+        OrderCreated::dispatch($order);
 
         return $this->created($order);
     }
