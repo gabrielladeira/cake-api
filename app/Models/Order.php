@@ -15,4 +15,8 @@ class Order extends Model
     {
         return $this->belongsTo(Cake::class);
     }
+
+    public function getCake() {
+        return $this->cake()->first();
+    }
 }
