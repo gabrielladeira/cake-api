@@ -16,7 +16,7 @@ class Order extends Model
         return $this->belongsTo(Cake::class);
     }
 
-    public function getCake() {
-        return $this->cake()->first();
+    public function hasCakes() {
+        return $this->cake->quantity > 0;
     }
 }

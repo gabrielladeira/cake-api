@@ -13,7 +13,7 @@ class OrderAvailableTest extends TestCase
         $mail = new OrderAvailable($order);
 
         $mail->assertSeeInHtml($order->email); 
-        $mail->assertSeeInHtml($order->getCake()->name);
+        $mail->assertSeeInHtml($order->cake->name);
         $mail->to($order->email);
         $mail->assertHasSubject('Ótima notícia, o bolo que você deseja está disponível');
     }

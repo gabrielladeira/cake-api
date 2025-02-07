@@ -19,8 +19,8 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            'email' => $this->faker->email,
-            'cake_id' => Cake::factory('')->create()->id
+            'email' => $this->faker->safeEmail(),
+            'cake_id' => Cake::factory()
         ];
     }
 }
