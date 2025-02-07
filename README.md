@@ -39,7 +39,7 @@ php artisan serve
 
 Exemplos de requisições que podem ser executadas:
 
-- Lista Volos
+- Lista Bolos
 ```
 curl --location 'http://localhost:8000/api/v1/cakes' \
 --header 'Accept: application/json' \
