@@ -107,8 +107,18 @@ curl --location --request GET 'http://localhost:8000/api/v1/orders' \
 
 **Rodando testes localmente**
 
-2) No arquivo .env.testing, Configure a variável `DB_DATABASE` com o caminho para o arquivo do sqlite de teste, como mostra o exemplo abaixo:
+1) No arquivo .env.testing, Configure a variável `DB_DATABASE` com o caminho para o arquivo do sqlite de teste, como mostra o exemplo abaixo:
 
 ```
 DB_DATABASE=/Users/eu/code/me/cake-api/database/database_test.sqlite
 ````
+
+2) Aplique as migrações do projeto utilizando o artisan:
+```
+php artisan migrate --env=testing
+```
+
+3) execute os testes:
+```
+php artisan test
+```
