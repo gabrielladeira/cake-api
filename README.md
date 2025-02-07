@@ -105,6 +105,12 @@ curl --location --request GET 'http://localhost:8000/api/v1/orders' \
 --header 'Content-Type: application/json'
 ```
 
+**Para visulizar o log do email, use o comando:**
+
+```
+tail -f storage/logs/laravel.log
+```
+
 **Rodando testes localmente**
 
 1) No arquivo .env.testing, Configure a variável `DB_DATABASE` com o caminho para o arquivo do sqlite de teste, como mostra o exemplo abaixo:
