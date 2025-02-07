@@ -44,7 +44,7 @@ class OrderAvailable extends Mailable
     {  
         $data  = [
             'email' => $this->order->email,
-            'cake_name' => $this->order->getCake()->name
+            'cake_name' => $this->order->cake->name
         ];
 
         return new Content(

@@ -31,6 +31,7 @@ class OrderController extends BaseController
     {
         $validated = $request->validated();
 
+        //TODO: Criar uma camada de serviço e remover lógica das controllers
         $order = Order::create($validated);
 
         OrderCreated::dispatch($order);

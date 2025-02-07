@@ -19,9 +19,7 @@ class SendEmailOrderAvailable
     {
         $order = $event->order;
 
-        $cake = $order->getCake();
-
-        if($cake->quantity > 0) {
+        if($order->hasCakes()) {
             $mail = new OrderAvailable($order);
             EmailService::send($mail);
         }
